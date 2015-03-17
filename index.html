@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html ng-app="myApp" ng-app lang="en">
+<head>
+	<title>Tubbi - Where to find good Chinese Food</title>
+    <meta charset="utf-8">
+<!--       stylesheet-->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/Tasty_Talks_v0.0.15.css">
+		<!-- Jquery scr -->
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>		
+		<!-- Google maps -->
+<!--
+		<script src="jquery.gomap-1.3.2.min.js"></script>
+-->
+		
+			<!-- Web speech src --> 
+<!--
+		<script src = "webspeech.js"> </script>		
+-->
+</head>
+<body>
+<!--<div class="navbar navbar-default" id="navbar">
+    <div class="container" id="navbar-container">
+    <div class="navbar-header">
+        <a href="http://angularcode.com" class="navbar-brand">
+            <small>
+                <i class="glyphicon glyphicon-log-out"></i>
+                AngularCode / AngularJS Demos 
+            </small>
+        </a>
+        
+    </div>
+    <div class="navbar-header pull-right" role="navigation">
+        <a href="http://angularcode.com/angularjs-datagrid-paging-sorting-filter-using-php-and-mysql/" class="btn btn-sm btn-danger nav-button-margin"> <i class="glyphicon glyphicon-book"></i>&nbsp;Tutorial Link</a>
+        <a href="http://angularcode.com/download-link/?url=https://app.box.com/s/kyomkfyeb42irie6rxcl" class="btn btn-sm btn-warning nav-button-margin"> <i class="glyphicon glyphicon-download"></i>&nbsp;Download Project</a>
+    </div>
+    </div>
+</div>-->
+
+
+<div ng-controller="customersCrtl">
+<div class="container">
+<br/>
+<blockquote><h4><a href="http://angularcode.com/angularjs-datagrid-paging-sorting-filter-using-php-and-mysql/">Simple Datagrid with search, sort and paging using AngularJS + PHP + MySQL</a></h4></blockquote>
+<br/>
+    <div class="row">
+        <div class="col-md-2">PageSize:
+            <select ng-model="entryLimit" class="form-control">
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>50</option>
+                <option>100</option>
+            </select>
+        </div>
+        <div class="col-md-3">Filter:
+            <input type="text" ng-model="search" ng-change="filter()" placeholder="Filter" class="form-control" />
+        </div>
+        <div class="col-md-4">
+            <h5>Filtered {{ filtered.length }} of {{ totalItems}} total customers</h5>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-5"> Your Seach Result
+        <div ng-show="filteredItems > 0">
+            <table class="result_table">
+            <tbody>
+                <table>
+                <tr ng-repeat="data in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+                  
+                    <td >
+<store></store>                        
+                        <!--<table class = 'result_table' >-->
+<!--// 1st Row-->
+<!--<tr>
+	<td colspan = '40'>  </td>
+</tr>-->
+
+<!--// 2nd Row-->
+<!--<tr>
+	<td rowspan = '8'>  </td>
+	<td rowspan = '8' colspan = '8' id = 'Result_Search_Icon'>  <img class = 'search_image' src = {{data.Search_Icon}} >  </td>
+	<td></td>
+    <td rowspan = '3' colspan = '30' id = 'Result_Store_Name' ng-show="language_local == 'cmn-Hant-TW'"> <a class='store_name' href = "http://maps.google.com/?q={{data.Location}},{{data.City}},{{data.State}}">{{data.Ch_Name}}</a></td> 
+    <td rowspan = '3' colspan = '30' id = 'Result_Store_Name' ng-show="language_local == 'en-US'"> <a class='store_name' href = "http://maps.google.com/?q={{data.Location}},{{data.City}},{{data.State}}">{{data.Name}}</a></td> 
+
+    
+</tr>-->
+<!--// 3rd Row-->
+<!--<tr>
+	<td></td>
+</tr>-->
+<!--// 4th Row-->
+<!--
+<tr>
+	<td></td>
+</tr>
+-->
+<!--// 5th Row-->
+<!--
+<tr>
+	<td></td>
+	<td rowspan = '3' colspan = '14' id = 'Result_Rating'>  <img class = 'search_image' src = "https://7d5a8358caf234706aa43eb302808a160cf97bbe.googledrive.com/host/0Bx7hinBDE7n7ZEhlTVBGejNobjA/Tubbi_Stars_{{data.Rating}}.png" }}> </td>
+	<td rowspan = '2' colspan = '4'>  </td>	
+	<td rowspan = '2' colspan = '12' id = 'Result_Distance'>  {{data.Distance}} miles  </td>
+-->
+<!--// 6th Row-->
+<!--<tr>
+	<td></td>
+</tr>-->
+<!--// 7th Row-->
+<!--
+<tr>
+	<td></td>
+	<td colspan= '16'>  </td>
+</tr>
+-->
+<!--// 8th Row-->
+<!--<tr>
+	<td></td>
+	<td colspan = '30' rowspan = '2' id = 'Result_Address'>  {{data.Location}}, {{data.City}}, {{data.State}}</td>
+</tr></tr>-->
+<!--                        </table>-->
+                          
+                    </td>
+                </table>
+                </tr>
+            </tbody>
+                </table>
+        </div>
+        <div class="col-md-5" ng-show="filteredItems == 0">
+            <div class="col-md-5">
+                <h4>No customers found</h4>
+            </div>
+        </div>
+        <div class="col-md-12" ng-show="filteredItems > 0">    
+            <div pagination="" page="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;"></div>
+         
+        </div>
+        
+        </div>
+        <div class="col-md-7">map</div>
+        </div>
+</div>
+</div>
+<script src="js/angular.min.js"></script>
+<script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
+<script src="app/app.js"></script>         
+    </body>
+</html>
