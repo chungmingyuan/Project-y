@@ -321,3 +321,24 @@ ul{
 	color: #ffffff;
 	font-size: 12px; 
 }
+.nav-pills{
+    background-color: #3498D8 !important;
+    vertical-align: middle;
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: red !important; 
+    
+}
+.nav-justified>li>a  {
+background-color: #3498d8;
+    text-align: center;
+    color: black !important;
+	font-size: 24px; 	
+}
+.nav-pills>li.active>a  {
+background-color: red;
+    text-align: center;
+    color: white !important;
+	font-size: 24px; 	
+}
