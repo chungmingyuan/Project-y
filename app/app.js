@@ -1,12 +1,18 @@
 
+var crusine_types_en = ["Schezwan", "Taiwanese", "Beijing", "Cantonese"]; 
+var crusine_types_ch = ["川菜", "台灣小吃", "京菜", "廣東菜"]; 		
+$.each(crusine_types_en, function(index,value){
+console.log(index,value);
+});
 var formdata = new Object();
 formdata.lat_local = -10.5;
 formdata.long_local = -10.5;
-formdata.asr_results = "Taiwanese";
+formdata.asr_results = "Beijing";
 formdata.language_local = "en-US";
-formdata.asr_results = "台灣小吃";
-formdata.language_local = "cmn-Hant-TW";
+//formdata.asr_results = "台灣小吃";
+//formdata.language_local = "cmn-Hant-TW";
 var language_local = formdata.language_local;
+var language_sel="";
 //load default map before GPS detection
 //map_default = new GMaps({
 //    div: '#map_default',
@@ -44,6 +50,23 @@ app.controller('customersCrtl', function ($scope, $http, $timeout) {
         $scope.predicate = predicate;
         $scope.reverse = !$scope.reverse;
     };
+    $scope.loadData= function(){
+        $http.post('ajax/getCustomers.php',JSON.stringify(formdata)).success(function(data){
+        $scope.list = data;
+        $scope.currentPage = 1; //current page
+        $scope.entryLimit = 5; //max no of items to display in a page
+        $scope.filteredItems = $scope.list.length; //Initially for no filter  
+        $scope.totalItems = $scope.list.length;
+        $scope.language_local = formdata.language_local;
+    });
+    
+//$(document).ready(function(){$scope.loadData();});
+
+    
+    
+    
+    
+    }
 });
 		//jquery functions
 //$(document).ready(function(){
@@ -189,3 +212,65 @@ app.directive('store',function(){
    }
 });
 
+$('#searchType li a').click(function () {
+    var asr_index = $('#searchType li a').index(this) + 1; 
+    var asr_text =$(this).text();
+    console.log(asr_index,asr_text);
+    formdata.lat_local = -10.5;
+    formdata.long_local = -10.5;
+    //formdata.asr_results = "Taiwanese";
+    //language_local = "en-US";
+    formdata.asr_results = asr_text;
+    switch ($('#selLanguage').text()){
+        case "English":
+            formdata.language_local = "en-US";
+            break;
+        case "Chinese":
+            formdata.language_local = "cmn-Hant-TW";
+            break; 
+        default:
+            formdata.language_local = "en-US";
+                        
+    };
+    //formdata.language_local = "en-US";//language_sel;
+    var language_local = formdata.language_local;
+    console.log('searchType Clicked '+$(this).text());
+    console.log('language_sel=',language_local);
+});
+
+$('#ulLanguage li a').click(function () {
+    $('#selLanguage').text($(this).text());
+//    $('#liSchezwan').text($(this).text());
+    switch ($(this).text()){
+        case "English":
+            console.log('eng');
+            /*$.each(crusine_types_en, function(index,value){
+            $('#searchType li[index] a').text(value);
+              console.log(index,value);
+                console.log($('#searchType li[index] a').text(value));
+            });*/
+            $('#liSchezwan a').text(crusine_types_en[0]);
+            $('#liTaiwanese a').text(crusine_types_en[1]);
+            $('#liBeijing a').text(crusine_types_en[2]);
+            $('#liCantonese a').text(crusine_types_en[3]);
+            break;
+        case "Chinese":
+            console.log('chi');
+            /*$.each(crusine_types_ch, function(index,value){
+            $('#searchType li[index] a').html(value);
+              console.log(index,value);
+                console.log($('#searchType li[index] a').text(value));
+            });*/
+            $('#liSchezwan a').text(crusine_types_ch[0]);
+            $('#liTaiwanese a').text(crusine_types_ch[1]);
+            $('#liBeijing a').text(crusine_types_ch[2]);
+            $('#liCantonese a').text(crusine_types_ch[3]);
+            break;
+        default:
+            $("crusine_types_en").each(function(index){
+            $('#searchType li a').text(value);
+                console.log($(this).text());
+            });
+    };
+    console.log('ulLanguage clicked....',$("#selLanguage").text());
+});

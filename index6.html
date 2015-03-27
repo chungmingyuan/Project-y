@@ -3,8 +3,6 @@
 <head>
 	<title>Tubbi - Where to find good Chinese Food</title>
     <meta charset="utf-8">
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <!--       stylesheet-->
         <link href="css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/Tasty_Talks_v0.0.15.css">
@@ -18,7 +16,7 @@
 <body>
 <div class="navbar navbar-default" id="navbar">
     <div class="container" id="navbar-container">
-    <!--<div class="navbar-header">
+    <div class="navbar-header">
         <a href="http://angularcode.com" class="navbar-brand">
             <small>
                 <i class="glyphicon glyphicon-log-out"></i>
@@ -26,63 +24,26 @@
             </small>
         </a>
         
-    </div>-->
-    <!--<div class="navbar-header pull-right" role="navigation">
+    </div>
+    <div class="navbar-header pull-right" role="navigation">
         <a href="http://angularcode.com/angularjs-datagrid-paging-sorting-filter-using-php-and-mysql/" class="btn btn-sm btn-danger nav-button-margin"> <i class="glyphicon glyphicon-book"></i>&nbsp;Tutorial Link</a>
         <a href="http://angularcode.com/download-link/?url=https://app.box.com/s/kyomkfyeb42irie6rxcl" class="btn btn-sm btn-warning nav-button-margin"> <i class="glyphicon glyphicon-download"></i>&nbsp;Download Project</a>
-    </div>-->
+    </div>
     </div>
 </div>
 
-
-<nav id=topNav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Language</a>
-    </div>
-    
-    
-    
-
-    
-    
-    
-    
-    
-    <div>
-      <ul class="nav navbar-nav">
-<!--
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Language<span class="caret"></span></a>
-          <ul id="ddLanguage" class="dropdown-menu">
-            <li><a href="#">English</a></li>
-            <li><a href="#">Chinese</a></li>
-          </ul>
-        </li>
--->
-<div class="dropdown">
-  <button id="selLanguage" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-    Select one
-    <span class="caret"></span>
-  </button>
-  <ul id="ulLanguage" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">English</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Chinese</a></li>
-  </ul>
-</div>
-
-      
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span>Home</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Contact us</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
 
 <div ng-controller="customersCrtl">
 <div class="container">
 <br/>
+<nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+        <li><a href="">Language</a></li>
+        <li><a href="">home</a></li>
+        <li><a href="">home</a></li>
+        <li class="navbar-fixed-right"><a href="">home</a></li>
+    </ul>
+</nav>
 <div class="jombotron">
     <h1>Tubbi</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam eum saepe dolor quisquam, earum eius minus omnis repellat sit voluptate. Repellat ipsa dicta qui fugiat quaerat ratione! Saepe, ad ipsa?</p>
@@ -92,11 +53,11 @@
     <a href="" class="btn btn-info btn-lg">test</a>
 </div>
 
-  <nav> <ul id="searchType" class="nav nav-pills nav-justified">
-        <li id="liSchezwan" ng-click="loadData()"><a href="">Schezwan</a></li>
-        <li id="liTaiwanese" ng-click="loadData()"><a href="">Taiwanese</a></li>
-        <li id="liBeijing" ng-click="loadData()"><a href="">Beijing</a></li>
-        <li id="liCantonese" ng-click="loadData()"><a href="">Cantonese</a></li>
+  <nav>  <ul class="nav nav-pills nav-justified">
+        <li class="active"><a href="">Schezwan</a></li>
+        <li><a href="about.html">Taiwanese</a></li>
+        <li><a href="">Beijing</a></li>
+        <li><a href="">Cantonese</a></li>
       </ul>
 </nav>
     
