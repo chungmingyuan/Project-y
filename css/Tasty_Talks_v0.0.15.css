@@ -194,17 +194,22 @@ ul{
 
 
 #map_default{
-	position: relative;
-	height: 450px;
-	width: 960px;
+    text-align: center;
+	width:100%;
+    height:450px;
+    position:relative;
+    right:0;
+    top:0px;
+    bottom:0;
 }
-
-#map_response{
-	position: absolute;
-	top: 0px;
-	left: 410px;
-	height: 450px;
-	width: 550px;
+#map_result{
+    text-align: center;
+	width:100%;
+    height:450px;
+    right:0px;
+    top:0px;
+    bottom:0;
+    display:block;
 }
 
 
@@ -213,7 +218,7 @@ ul{
 .result_table{
 	table-layout: fixed;
 	border: 2px solid black;
-	width: 400px;
+	width: 380px;
 	height: 100px;	
 }
 
